@@ -1,7 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
   const burger = document.querySelector(".hamburger");
   const links = document.querySelector(".nav-links");
-  if (burger && links) burger.addEventListener("click", () => links.classList.toggle("open"));
+  if (burger && links) {
+    burger.addEventListener("click", () => {
+      const isOpen = links.classList.toggle("open");
+      burger.setAttribute("aria-expanded", String(isOpen));
+      document.body.classList.toggle("nav-open", isOpen);
+    });
+    // Close the mobile menu after tapping a link inside it.
+    links.addEventListener("click", (e) => {
+      if (e.target.tagName === "A" || e.target.tagName === "BUTTON") {
+        links.classList.remove("open");
+        burger.setAttribute("aria-expanded", "false");
+        document.body.classList.remove("nav-open");
+      }
+    });
+  }
 
   // Populate auth-dependent nav slot
   const slot = document.getElementById("nav-auth-slot");
