@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}My dashboard · {{ site_name }}{% endblock %}
+{% block content %}
+<div class="container" style="padding: 36px 0 80px;">
+  <div class="section-head">
+    <div>
+      <span class="eyebrow"><span class="si">මගේ ලිපි</span><span class="divider"></span>Dashboard</span>
+      <h1>My posts</h1>
+    </div>
+    <a href="/write" class="btn btn-primary">+ New post</a>
+  </div>
+
+  <div id="my-blogs-empty" class="empty-state" style="display:none;">
+    <h3>You haven't written anything yet</h3>
+    <p>Start your first story — it only takes a minute.</p>
+    <a href="/write" class="btn btn-primary" style="margin-top:14px;">Write your first post</a>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Title</th><th>Status</th><th>Category</th><th>Views</th><th>Updated</th><th></th></tr>
+      </thead>
+      <tbody id="my-blogs-body"></tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
+{% block extra_scripts %}<script src="/static/js/dashboard.js"></script>{% endblock %}

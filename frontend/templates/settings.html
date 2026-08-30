@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Settings · {{ site_name }}{% endblock %}
+{% block content %}
+<div class="container container--narrow" style="padding:44px 24px 80px;">
+  <span class="eyebrow"><span class="si">සැකසුම්</span><span class="divider"></span>Settings</span>
+  <h1>Profile settings</h1>
+
+  <div class="sidebar-box" style="margin:26px 0;">
+    <h3>Cover photo</h3>
+    <div class="thumb-drop" style="aspect-ratio:3/1; margin-bottom:12px;" onclick="document.getElementById('cover-input').click()">
+      <img id="cover-preview" src="" alt="" style="display:block;">
+    </div>
+    <input type="file" id="cover-input" accept="image/*" style="display:none;">
+    <p class="field-hint">Click to upload. Converted to WebP automatically.</p>
+  </div>
+
+  <div class="sidebar-box" style="margin-bottom:26px;">
+    <h3>Profile picture</h3>
+    <div class="thumb-drop" style="width:110px; aspect-ratio:1/1; margin-bottom:12px; border-radius:50%;" onclick="document.getElementById('avatar-input').click()">
+      <img id="avatar-preview" src="" alt="" style="display:block;">
+    </div>
+    <input type="file" id="avatar-input" accept="image/*" style="display:none;">
+  </div>
+
+  <form id="settings-form" class="sidebar-box">
+    <h3>Basic info</h3>
+    <div class="field-row">
+      <div class="field"><label>First name</label><input type="text" id="first-name" required></div>
+      <div class="field"><label>Last name</label><input type="text" id="last-name" required></div>
+    </div>
+    <div class="field">
+      <label>Bio</label>
+      <textarea id="bio" rows="4" placeholder="Tell readers about yourself…"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Save changes</button>
+  </form>
+</div>
+{% endblock %}
+{% block extra_scripts %}<script src="/static/js/settings.js"></script>{% endblock %}

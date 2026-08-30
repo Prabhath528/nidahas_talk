@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Search · {{ site_name }}{% endblock %}
+{% block content %}
+<div class="container" style="padding: 40px 0 70px;">
+  <span class="eyebrow"><span class="si">සොයන්න</span><span class="divider"></span>Search</span>
+  <h1>Find a story</h1>
+  <form id="search-form" style="display:flex; gap:10px; max-width:520px; margin:22px 0 34px;">
+    <input type="search" id="search-input" placeholder="Search titles and descriptions…" style="flex:1;">
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+  <div class="grid" id="results-grid"></div>
+</div>
+{% endblock %}
+{% block extra_scripts %}<script src="/static/js/search.js"></script>{% endblock %}

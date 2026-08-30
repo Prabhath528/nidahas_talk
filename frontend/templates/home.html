@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+
+  {% if blogs %}
+  <section class="hero">
+    {% set feature = blogs[0] %}
+    <div class="hero__grid">
+      <a class="hero__feature" href="/blog/{{ feature.slug }}">
+        {% if feature.cover_image_url or feature.thumbnail_url %}
+        <img src="{{ feature.cover_image_url or feature.thumbnail_url }}" alt="{{ feature.title }}">
+        {% endif %}
+        <div class="hero__feature-body">
+          <span class="eyebrow"><span class="si">නවතම කතාව</span><span class="divider"></span>Latest story</span>
+          <h1>{{ feature.title }}</h1>
+          {% if feature.excerpt %}<p>{{ feature.excerpt }}</p>{% endif %}
+          <div class="hero__meta">
+            <span>{{ feature.author.first_name }} {{ feature.author.last_name }}</span>
+            <span>&middot;</span>
+            <span>{{ feature.reading_time_minutes }} min read</span>
+          </div>
+        </div>
+      </a>
+      <div class="hero__side">
+        {% for b in blogs[1:4] %}
+        <a class="mini-card" href="/blog/{{ b.slug }}">
+          <img src="{{ b.thumbnail_url or '' }}" alt="">
+          <div>
+            <div class="card__meta" style="margin-bottom:6px;">{{ b.category.name if b.category else "Story" }}</div>
+            <div class="mini-card__title">{{ b.title }}</div>
+            <div class="mini-card__meta">{{ b.reading_time_minutes }} min read &middot; {{ b.views }} views</div>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <div class="layout-2col" style="padding-bottom:60px;">
+    <div>
+      <div class="section-head">
+        <h2>All stories</h2>
+      </div>
+
+      {% if blogs %}
+      <div class="grid">
+        {% for b in blogs %}
+        <a class="card" href="/blog/{{ b.slug }}">
+          <div class="card__thumb">{% if b.thumbnail_url %}<img src="{{ b.thumbnail_url }}" alt="{{ b.title }}">{% endif %}</div>
+          <div class="card__body">
+            {% if b.category %}<span class="badge">{{ b.category.name }}</span>{% endif %}
+            <h3 class="card__title">{{ b.title }}</h3>
+            <p class="card__excerpt">{{ b.excerpt or "" }}</p>
+            <div class="card__footer">
+              {% if b.author.profile_picture %}<img class="avatar" src="{{ b.author.profile_picture }}">{% else %}<div class="avatar"></div>{% endif %}
+              <div>
+                <div class="card__author">{{ b.author.first_name }} {{ b.author.last_name }}</div>
+                <div class="card__meta">{{ b.reading_time_minutes }} min read</div>
+              </div>
+            </div>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+      {% else %}
+      <div class="empty-state">
+        <h3>No stories published yet</h3>
+        <p>Once bloggers start publishing, their stories will appear here.</p>
+        <a href="/become-blogger" class="btn btn-primary" style="margin-top:16px;">Become a blogger</a>
+      </div>
+      {% endif %}
+    </div>
+
+    <aside>
+      <div class="sidebar-box">
+        <h3><span class="si">කාණ්ඩ</span> &middot; Categories</h3>
+        <div class="chip-list">
+          {% for c in categories %}
+          <a class="chip" href="/category/{{ c.slug }}">{{ c.name }}</a>
+          {% else %}
+          <span class="field-hint">No categories yet.</span>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="sidebar-box">
+        <h3>About Nidhas Talks</h3>
+        <p class="field-hint">A free space for Sinhala and English voices. Read openly, write honestly, and join the conversation in the comments.</p>
+        <a href="/become-blogger" class="btn btn-outline btn-block btn-sm" style="margin-top:8px;">Start writing</a>
+      </div>
+    </aside>
+  </div>
+</div>
+{% endblock %}

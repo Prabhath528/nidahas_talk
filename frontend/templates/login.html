@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Log in · {{ site_name }}{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="auth-shell">
+    <div class="auth-card">
+      <span class="eyebrow"><span class="si">පිවිසෙන්න</span><span class="divider"></span>Welcome back</span>
+      <h1>Log in</h1>
+      <p class="auth-sub">Continue reading and writing on {{ site_name }}.</p>
+
+      <div id="form-error" class="form-error-box"></div>
+
+      <form id="login-form">
+        <div class="field">
+          <label for="login-email">Email</label>
+          <input type="email" id="login-email" name="email" required autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" name="password" required autocomplete="current-password">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Log in</button>
+      </form>
+
+      <p class="auth-switch">New here? <a href="/register">Create an account</a></p>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block extra_scripts %}<script src="/static/js/auth.js"></script>{% endblock %}

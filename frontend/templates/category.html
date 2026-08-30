@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Category · {{ site_name }}{% endblock %}
+{% block content %}
+<div class="container" style="padding: 40px 0 70px;">
+  <span class="eyebrow"><span class="si">කාණ්ඩය</span><span class="divider"></span>Category</span>
+  <h1 id="category-title">Category</h1>
+  <div class="grid" id="results-grid" style="margin-top:28px;"></div>
+</div>
+{% endblock %}
+{% block extra_scripts %}<script src="/static/js/category.js"></script>{% endblock %}

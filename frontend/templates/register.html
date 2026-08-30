@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Create your account · {{ site_name }}{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="auth-shell">
+    <div class="auth-card" style="max-width:520px;">
+      <span class="eyebrow"><span class="si">එකතු වන්න</span><span class="divider"></span>Join Nidhas Talks</span>
+      <h1>Create your account</h1>
+      <p class="auth-sub">Free to read. Free to write. Free to talk.</p>
+
+      <div id="form-error" class="form-error-box"></div>
+
+      <form id="register-form">
+        <div class="field-row">
+          <div class="field">
+            <label for="first_name">First name</label>
+            <input type="text" id="first_name" name="first_name" required>
+          </div>
+          <div class="field">
+            <label for="last_name">Last name</label>
+            <input type="text" id="last_name" name="last_name" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" required minlength="3" placeholder="e.g. kavindu_92">
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+        </div>
+
+        <div class="field">
+          <label for="dob">Date of birth</label>
+          <input type="date" id="dob" name="date_of_birth" required>
+          <div class="field-hint" id="age-preview"></div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required minlength="8" autocomplete="new-password">
+          </div>
+          <div class="field">
+            <label for="confirm_password">Confirm password</label>
+            <input type="password" id="confirm_password" name="confirm_password" required minlength="8" autocomplete="new-password">
+          </div>
+        </div>
+
+        <div class="checkbox-row" style="margin-bottom:20px;">
+          <input type="checkbox" id="accept-terms" required>
+          <label for="accept-terms">I agree to the <a href="/terms" target="_blank">Terms &amp; Conditions</a> and <a href="/privacy" target="_blank">Privacy Policy</a>.</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Create account</button>
+      </form>
+
+      <p class="auth-switch">Already have an account? <a href="/login">Log in</a></p>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block extra_scripts %}<script src="/static/js/auth.js"></script>{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Profile · {{ site_name }}{% endblock %}
+{% block content %}
+<div class="container" style="padding-bottom:70px;">
+  <div class="thumb-drop" style="aspect-ratio:4/1; border:none; margin:24px 0 -50px; border-radius: var(--radius-lg);">
+    <img id="profile-cover" src="" alt="" style="display:block;">
+  </div>
+  <div style="display:flex; align-items:flex-end; gap:18px; padding: 0 6px;">
+    <img id="profile-avatar" src="" alt="" class="avatar" style="width:96px; height:96px; border:4px solid var(--bg); background:var(--surface-2);">
+    <div style="padding-bottom:6px;">
+      <h1 id="profile-name" style="font-size:24px; margin-bottom:2px;"></h1>
+      <div style="display:flex; gap:10px; align-items:center; color:var(--text-muted); font-size:13.5px;">
+        <span id="profile-username"></span><span class="badge" id="profile-role"></span>
+      </div>
+    </div>
+  </div>
+  <p id="profile-bio" style="max-width:60ch; margin: 20px 6px 40px; color:var(--text-muted);"></p>
+
+  <div class="rule"></div>
+  <h2 style="margin-bottom:22px;">Published stories</h2>
+  <div class="grid" id="profile-blogs"></div>
+</div>
+{% endblock %}
+{% block extra_scripts %}<script src="/static/js/profile.js"></script>{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Become a blogger · {{ site_name }}{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="auth-shell">
+    <div class="auth-card" style="max-width:560px;">
+      <span class="eyebrow"><span class="si">ලේඛකයෙක් වන්න</span><span class="divider"></span>Blogger Agreement</span>
+      <h1>Become a blogger</h1>
+      <p class="auth-sub">Unlock the editor and start publishing your own stories on {{ site_name }}.</p>
+
+      <div class="sidebar-box" style="margin-bottom:20px; font-size:13.5px; color:var(--text-muted); max-height:220px; overflow:auto;">
+        <p><strong>By becoming a blogger you agree to:</strong></p>
+        <ul style="padding-left:18px; margin:0;">
+          <li>Publish only content you have the rights to share.</li>
+          <li>Follow the <a href="/terms" target="_blank">Terms &amp; Conditions</a> and community guidelines — no hate speech, harassment or explicit language.</li>
+          <li>Mark any mature (18+) content honestly using the mature-content toggle in the editor.</li>
+          <li>Add an accurate title, description and category to every post before publishing.</li>
+        </ul>
+      </div>
+
+      <form id="become-blogger-form">
+        <div class="checkbox-row" style="margin-bottom:20px;">
+          <input type="checkbox" id="accept-blogger-terms" required>
+          <label for="accept-blogger-terms">I have read and accept the Blogger Agreement above.</label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Unlock the editor</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block extra_scripts %}<script src="/static/js/auth.js"></script>{% endblock %}
