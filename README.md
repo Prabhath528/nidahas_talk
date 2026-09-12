@@ -94,9 +94,9 @@ Key variables:
 ```
 DATABASE_URL=postgresql+psycopg2://postgres:YOUR_PASSWORD@localhost:5432/nidhas_talks
 SECRET_KEY=<generate a long random string>
-ADMIN_EMAIL=prabhathkelum@gmail.com
-ADMIN_USERNAME=prabhathkelum
-ADMIN_PASSWORD=Admin123@!Pass
+ADMIN_EMAIL=
+ADMIN_USERNAME=
+ADMIN_PASSWORD=
 ```
 
 The admin account above is seeded automatically the first time the app
